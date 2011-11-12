@@ -13,7 +13,7 @@ public class BowlingGameTest {
 
 	
 	@Before
-	public void setUp() {
+	public void createGame() {
 		g = new Game();
 	}
 	

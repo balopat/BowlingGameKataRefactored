@@ -1,23 +1,18 @@
 package com.balopat.katas;
 
-
 public class Frame {
-
 	Rolls rolls = new Rolls();
-
 	
 	public boolean isAllRollsUsed() {
 		return twoRollsLessThen10() || isStrike() || isSpare();
 	}
 
-	
 	public void roll(int pins) {
 		if (isClosed()) {
 			throw new IllegalStateException();
 		}
 		rolls.roll(pins);
 	}
-
 	
 	public int score() {
 		int score = 0;
@@ -43,11 +38,9 @@ public class Frame {
 		return rolls.at(1) + rolls.at(2);
 	}
 
-
 	int spareBonus() {
 		return rolls.at(2);
 	}
-
 	
 	public boolean isClosed() {
 		if (rolls.isEmpty()) {
@@ -67,7 +60,5 @@ public class Frame {
 	private boolean isSpareWithBonuses() {
 		return isSpare() && rolls.count() == 3;
 	}
-
-	
 	
 }

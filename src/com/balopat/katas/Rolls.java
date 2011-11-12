@@ -10,7 +10,6 @@ public class Rolls {
 	public void roll(int pins) {
 		rolls.add(pins);
 	}
-	
 	public int at(int i) {
 		return rolls.size() <= i 
 					?0 
@@ -19,12 +18,7 @@ public class Rolls {
 	public int count() {
 		return rolls.size();
 	}
-
 	public boolean isEmpty() {
 		return rolls.isEmpty();
 	}
-
-	
-
-
 }

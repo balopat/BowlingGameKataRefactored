@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RollsTest {
-	Rolls r;
+	private Rolls r;
 	
 	@Before
 	public void createRolls() {
