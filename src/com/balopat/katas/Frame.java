@@ -5,10 +5,12 @@ public class Frame {
 
 	Rolls rolls = new Rolls();
 
-	public boolean isStrike() {
-		return rolls.at(0) == 10;
+	
+	public boolean isAllRollsUsed() {
+		return twoRollsLessThen10() || isStrike() || isSpare();
 	}
 
+	
 	public void roll(int pins) {
 		if (isClosed()) {
 			throw new IllegalStateException();
@@ -16,19 +18,7 @@ public class Frame {
 		rolls.roll(pins);
 	}
 
-	public boolean isSpare() {
-		return rolls.at(0) + rolls.at(1) == 10;
-	}
-
-	public int strikeBonus() {
-		return rolls.at(1) + rolls.at(2);
-	}
-
-
-	public int spareBonus() {
-		return rolls.at(2);
-	}
-
+	
 	public int score() {
 		int score = 0;
 		if (isStrike()) {
@@ -40,12 +30,34 @@ public class Frame {
 		}
 		return score;
 	}
+	
+	boolean isStrike() {
+		return rolls.at(0) == 10;
+	}
 
+	boolean isSpare() {
+		return rolls.at(0) + rolls.at(1) == 10;
+	}
+
+	int strikeBonus() {
+		return rolls.at(1) + rolls.at(2);
+	}
+
+
+	int spareBonus() {
+		return rolls.at(2);
+	}
+
+	
 	public boolean isClosed() {
 		if (rolls.isEmpty()) {
 			return false;
 		}
 		return isStrikeWithBonuses() || isSpareWithBonuses() || twoRollsLessThen10();
+	}
+
+	private boolean isStrikeWithBonuses() {
+		return (isStrike() && rolls.count() == 3);
 	}
 
 	private boolean twoRollsLessThen10() {
@@ -56,12 +68,6 @@ public class Frame {
 		return isSpare() && rolls.count() == 3;
 	}
 
-	private boolean isStrikeWithBonuses() {
-		return (isStrike() && rolls.count() == 3);
-	}
-
-	public boolean isAllRollsUsed() {
-		return twoRollsLessThen10() || isStrike() || isSpare();
-	}
-
+	
+	
 }
