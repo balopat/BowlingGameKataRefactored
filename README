@@ -1,4 +1,4 @@
 This project is really just the result of a little refactoring excersise of the endproduct of Robert C. Martin's Bowling Game Kata. 
 I wanted to try out and apply the Clean Code rules on the resulting algorithm, which is a bit hard to understand. 
-I beleive that the current version is understandable than the code where Uncle Bob's kata stops.
+I believe that the current version is more understandable than the code where Uncle Bob's kata stops.
 
